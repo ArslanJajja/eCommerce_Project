@@ -3,8 +3,8 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cloudinary = require('cloudinary');
-
 const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
 require("dotenv").config({ path: "./config/config.env" });
 const connectDB = require("./config/db");
 app.use(cookieParser());
@@ -23,6 +23,7 @@ app.get("/", (req, res, next) => {
   res.send("Wellcome to my Nodejs Ecommerce Api !");
 });
 app.use("/api/v1", userRoutes);
+app.use("/api/v1",productRoutes);
 
 const port = 5000;
 
